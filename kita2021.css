@@ -1,0 +1,10 @@
+.divider {
+    background-color: gray;
+    height: 1px;
+    margin-top: 2em;
+}
+
+.heading {
+    font-weight: bold;
+    margin-top: 2em;
+}
