@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>KITA2021</title>
+        <!-- Bootstrap-CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <!-- jQuery and JS bundle w/ Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+        <!-- eigenes CSS -->
+
+        <!-- eigenes JavaScript -->
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Kita-Verwaltung</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Suche nach Kita</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Suchen
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Suche nach Kita</a>
+                      <a class="dropdown-item" href="#">Suche nach Personal</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Anlegen
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Stammdaten</a>
+                        <a class="dropdown-item" href="#">Stelle</a>
+                        <a class="dropdown-item" href="#">Befristung</a>
+                        <a class="dropdown-item" href="#">Berufsverbot</a>
+                        <a class="dropdown-item" href="#">Erziehungsurlaub</a>
+                        <a class="dropdown-item" href="#">Langzeitkranker</a>
+                        <a class="dropdown-item" href="#">Mitarbeiterqualifikation</a>
+                    </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- Ende NavBar -->
+          <div class="container">
+            <div class="form-group">
+              <label>Kita</label>
+              <select class="form-control">
+                <option>Haus des Kindes</option>
+                <option>Kita Banana Building</option>
+                <option>Kita Erlenbrunn</option>
+                <aoption>Kita Fehrbach</option>
+                <option>Kita Gersbach</option>
+                <option>Kita Niedersimten</option>
+                <option>Kita Ohmbach</option>
+                <option>Kita Ruhbank</option>
+                <option>Kita Sommerwald</option>
+                <aoption>Kita Windsberg</option>
+                <option>Kita Wittelsbach</option>
+                <option>Krippe Erlenbrunn</option>
+                <option>Krippe MTS</option>
+            </div>
+          
+            <div class="form-group">
+              <!-- Überschrift -->
+              <h2>Datum</h2>
+              
+              <!-- Datum wählen-->
+              <div class="form-check">
+                <input class="form-check-input" name="radio_date" type="radio" id="radio1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Aktuelles Datum
+                </label>
+              </div>
+              <!-- Datum wählen-->
+              <div class="form-check">
+                <input class="form-check-input" name="radio_date" type="radio" id="radio1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Aktuelles Datum
+                </label>
+              </div>
+              <!-- Datum wählen -->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                  <input type="radio" name="radio_date" value="option2">
+                  </div>
+                </div>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+    </body>
+</html>
