@@ -14,9 +14,16 @@ class AccessApp {
     }
 
     selectKita(kita, date, resolve) {
-       /* let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '" AND Beginn < "${date}" ' + 
-        'AND Ende > "' + date + '"'; */
-        let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '"';
+        /*let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '" AND Beginn <= ' + date + ' ' + 
+        'AND Ende >= ' + date + ';';*/
+        //let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '"';
+        //let sql = 'SELECT * FROM tbl_Stelle WHERE Beginn = #12/6/1970#;';
+        /*let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '" AND Beginn <= #07/05/2020# ' + 
+        'AND Ende >= #07/05/2020#;';*/
+        let sql = 'SELECT * FROM tbl_Stelle '+
+        'LEFT OUTER JOIN tbl_Stammdaten ON tbl_Stammdaten.Personal_ID = tbl_Stelle.Personal_ID ' +
+        'WHERE Kita = "' + 'Kita Fehrbach' + '" AND Beginn <= ' + date + ' '+ 
+        'AND (Ende >= ' + date + ' OR Ende IS NULL);';
         console.log(sql);
         this.connect()
         .query(sql)

@@ -1,10 +1,12 @@
-let getFormatedDateFromDbDate = (dateString) => {
-    let date = dateString.split('T')[0];
-    let ymd = date.split('-');
-    return `${ymd[2]}.${ymd[1]}.${ymd[0]}`;
+let getFormatedDateFromDbDate = (dateInt) => {
+    if (dateInt == null)
+        return '-';
+    let dateString = String(dateInt);
+    return `${dateString.substring(6,8)}.${dateString.substring(4,6)}.${dateString.substring(0,4)}`;
 }
 
 let maybeNull = (data) => {
+    console.log(data);
     if (data == null || data === 0)
         return '-';
     else
