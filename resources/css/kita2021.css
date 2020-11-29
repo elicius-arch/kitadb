@@ -1,0 +1,19 @@
+.heading {
+    font-weight: bold;
+}
+
+.input-desc{
+    width: 10em;
+}
+
+.input-item {
+    width: 2.5em;
+}
+
+.input-group {
+    margin-top: 2em;
+}
+
+.disabled {
+    background-color: #e9ecef;
+}
