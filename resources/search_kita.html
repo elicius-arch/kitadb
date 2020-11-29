@@ -31,6 +31,7 @@
   <!-- eigenes JavaScript -->
   <script src="scripts/search_kita.js"></script>
   <script src="scripts/dataHandler.js"></script>
+  <script src="scripts/returnDataHandler.js"></script>
 </head>
 
 <body>
@@ -77,8 +78,8 @@
   <!-- Ende NavBar -->
 
   <div class="card" style="margin: 1em; display: block;">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#query_params" style="width: 10em; margin: 1em; display: inline;">Neue Abfrage</button>
-    <button type="button" class="btn btn-primary disabled" style="width: 10em; margin: 1em; display: inline;">Exportieren</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#query_params" style="margin: 1em; display: inline;">Neue Abfrage</button>
+    <button type="button" class="btn btn-primary disabled" style="margin: 1em; display: inline;">Exportieren</button>
   </div>
 
   <!-- Formular -->
@@ -133,11 +134,31 @@
 
           <button id="select_button" type="button" class="btn btn-dark" style="margin-top: 1em;"
             onclick="select()" data-dismiss="modal">Suchen</button>
-          </div>
         </div>
       </div>
     </div>
   </div>
+  <h2 id="kita-header"></h2>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Stellen-ID</th>
+        <th scope="col">Nachname</th>
+        <th scope="col">Vorname</th>
+        <th scope="col">Beginn</th>
+        <th scope="col">Ende</th>
+        <th scope="col">wöch. Arbeitszeit</th>
+        <th scope="col">Stellenanteil</th>
+        <th scope="col">Vergütungsgruppe</th>
+        <th scope="col">Funktion</th>
+        <th scope="col">Leitungsfreistellung</th>
+        <th scope="col">Bemerkung</th>
+        <th scope="col">Stelle gekoppelt an</th>
+      </tr>
+    </thead>
+    <tbody id="stelle-table-body">
+    </tbody>
+  </table>
 </body>
 
 </html>

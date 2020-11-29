@@ -42,8 +42,24 @@ let enableDateInput = (bool) => {
     let req = {
       kita: kita,
       date: date
-    }
-    execPostRequestWithPath(req, 'search_kita/get', (data) => {
-      console.log(data);
+    };
+    $('#stelle-table-body').empty();
+    execPostRequestWithPath(req, 'search_kita/get', (stellen) => {
+      console.log(stellen);
+      stellen.forEach(stelle => {
+        $('#stelle-table-body').append(`<tr id="stelle_${stelle.ID}"></tr>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${stelle.ID}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${'Nachname'}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${'Vorname'}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${getFormatedDateFromDbDate(stelle.Beginn)}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${getFormatedDateFromDbDate(stelle.Ende)}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${stelle['wöchentliche Arbeitszeit']}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${formatDouble(stelle.Stellenanteil)}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${stelle.Vergütungsgruppe}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${stelle.Funktion}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${maybeNull(stelle.Leitungsfreistellung)}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${maybeNull(stelle.Bemerkung)}</td>`);
+        $(`#stelle_${stelle.ID}`).append(`<td>${maybeNull(stelle['Stelle gekoppelt an'])}</td>`);
+      });
     });
   }
