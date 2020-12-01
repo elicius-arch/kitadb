@@ -10,3 +10,9 @@ exports.searchKita = (data) => {
         accessApp.selectKita(data.kita, data.date, resolve);
     })
 }
+
+exports.saveStammdaten = (data) => {
+    return new Promise(resolve => {
+        accessApp.insertStammdaten(data, resolve);
+    });
+}

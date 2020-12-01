@@ -14,23 +14,41 @@ class AccessApp {
     }
 
     selectKita(kita, date, resolve) {
-        /*let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '" AND Beginn <= ' + date + ' ' + 
-        'AND Ende >= ' + date + ';';*/
-        //let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '"';
-        //let sql = 'SELECT * FROM tbl_Stelle WHERE Beginn = #12/6/1970#;';
-        /*let sql = 'SELECT * FROM tbl_Stelle WHERE Kita = "' + kita + '" AND Beginn <= #07/05/2020# ' + 
-        'AND Ende >= #07/05/2020#;';*/
         let sql = 'SELECT * FROM tbl_Stelle '+
         'LEFT OUTER JOIN tbl_Stammdaten ON tbl_Stammdaten.Personal_ID = tbl_Stelle.Personal_ID ' +
-        'WHERE Kita = "' + 'Kita Fehrbach' + '" AND Beginn <= ' + date + ' '+ 
+        'WHERE Kita = "' + kita + '" AND Beginn <= ' + date + ' '+ 
         'AND (Ende >= ' + date + ' OR Ende IS NULL);';
-        console.log(sql);
         this.connect()
         .query(sql)
         .then(data => {
-            console.log(data);
+            console.log(data.length + ' entries found');
             resolve(data);
         })
+    }
+
+    insertStammdaten(data, resolve) {
+        this.connect()
+            .query('SELECT MAX(Personal_ID) FROM tbl_Stammdaten')
+            .then((dat => {
+                console.log(dat);
+                let sql = 'INSERT INTO tbl_Stammdaten VALUES (' + (dat[0].Expr1000 + 1) + ', ' + 
+                    ((data.nachname != undefined) ? '"' + data.nachname + '",' : '') +
+                    ((data.vorname != undefined) ? ' "' + data.vorname + '",' : '') + 
+                    ((data.gebDate != undefined) ? ' ' + data.gebDate + ',' : '') + 
+                    ((data.unbefristet != undefined) ? ' ' + data.unbefristet + ',' : '') + 
+                    ((data.einstellungsdatum != undefined) ? ' ' + data.einstellungsdatum + ',' : '') + 
+                    ((data.bemerkung != undefined) ? ' "' + data.bemerkung + '"': '') +
+                    ');';
+                console.log(sql);
+                this.connect()
+                    .execute(sql)
+                    .then(data => {
+                        console.log('INSERTED SUCCESSFULLY');
+                        console.log(data);
+                        resolve();
+                    });
+                    }));
+        
     }
       
 }

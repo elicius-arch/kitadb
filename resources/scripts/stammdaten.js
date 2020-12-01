@@ -6,36 +6,24 @@ let createNew = () => {
     }
     disableInput("personal_ID");
     disableInput("bearbeiten");
-    enableInput("save");
 }
 
 let getFormFields = () => {
     return $('.data');
 }
 
-let disableInput = (id) => {
-    document.getElementById(id).setAttribute("disabled", true);
-}
-
-let enableInput = (id) => {
-    document.getElementById(id).removeAttribute("disabled");
-}
-
 let saveFields = () => {
-    let fields = getFormFields();
-    let json = `{"method" : "save",`;
-    for (let f of fields) {
-        json += `"${f.id}" : "${f.value}",`;
-        disableInput(f.id);
-    }
-    disableInput("save");
-    enableInput("bearbeiten");
-    json = json.substring(0, json.length - 1);
-    json += "}";
+    let json = {};
+    json.nachname = $('#nachname').val();
+    json.vorname = $('#vorname').val();
+    json.gebDate = formatDateForServer($('#geburtsdatum').val());
+    json.unbefristet = formatDateForServer($('#unbefristet').val());
+    json.einstellungsdatum = formatDateForServer($('#einstellungsdatum').val());
+    json.bemerkung = $('#bemerkung').val();
+    
     console.log(json);
-    execPostRequest(json, (data) => {
+    execPostRequestWithPath(json, "stammdaten/save", (data) => {
         console.log(data);
-        
     });
 }
 

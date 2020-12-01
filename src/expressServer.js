@@ -7,16 +7,15 @@ app.use(express.static(__dirname + '/../resources'));
 app.use(express.urlencoded({extended: true}));
 
 app.post('/search_kita/get', async (req, res) => {
-    console.log(req.body);
-    console.log(req.body.kita);
+    console.log('POST: search_kita/get');
     let result = await functions.searchKita(req.body);
     res.send(result);
 });
-/*
-app.post('/search_kita/get', async (req, res) => {
-    var x = await functions.resolveAfter2Seconds(10);
-    res.send({ok: "" + x});
-});*/
+app.post('/stammdaten/save', async (req, res) => {
+    console.log('POST: stammdaten/save');
+    let result = await functions.saveStammdaten(req.body);
+    res.send(result);
+});
 
 app.listen(port, () => {
     console.log('running...');

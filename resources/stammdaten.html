@@ -34,6 +34,7 @@
   <!-- eigenes JavaScript -->
   <script src="scripts/stammdaten.js"></script>
   <script src="scripts/dataHandler.js"></script>
+  <script src="scripts/returnDataHandler.js"></script>
 </head>
 
 <body>
@@ -80,10 +81,9 @@
   <!-- Ende NavBar -->
 
   <div class="card" style="margin: 1em; display: block;">
-    <button type="button" class="btn btn-primary" style="width: 10em; margin: 1em; display: inline;" id="suchen" 
+    <button type="button" class="btn btn-primary" style="margin: 1em; display: inline;" id="suchen" 
             data-toggle="modal" data-target="#searchModal" onclick="searchNachnamen()">Suchen</button>
-    <button type="button" class="btn btn-primary" style="width: 10em; margin: 1em; display: inline;" id="bearbeiten">Bearbeiten</button>
-    <button type="button" class="btn btn-primary" style="width: 10em; margin: 1em; display: inline;" id="anlegen" onclick="createNew()">Anlegen</button>
+    <button type="button" class="btn btn-primary" style="margin: 1em; display: inline;" id="anlegen" onclick="createNew()">Anlegen</button>
   </div>
 
   <!-- Formular -->
@@ -101,44 +101,44 @@
                 <span class="input-group-text input-item"><i class="fas fa-signature"></i></span>
                 <span class="input-group-text input-desc">Nachname</span>
             </div>
-            <input type="text" class="form-control data" id="nachname" disabled>
+            <input type="text" class="form-control data" id="nachname">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text input-item"><i class="fas fa-user"></i></span>
                 <span class="input-group-text input-desc">Vorname</span>
             </div>
-            <input type="text" class="form-control data" id="vorname" disabled>
+            <input type="text" class="form-control data" id="vorname">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text input-item"><i class="fas fa-birthday-cake"></i></span>
                 <span class="input-group-text input-desc">Geburtsdatum</span>
             </div>
-            <input type="text" class="form-control data" id="geburtsdatum" disabled>
+            <input type="date" class="form-control data" id="geburtsdatum">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text input-item"><i class="fab fa-accessible-icon"></i></span>
                 <span class="input-group-text input-desc">unbefristet seit</span>
             </div>
-            <input type="text" class="form-control data" id="unbefristet" disabled>
+            <input type="date" class="form-control data" id="unbefristet">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text input-item"><i class="fas fa-handshake"></i></span>
                 <span class="input-group-text input-desc">Einstellungsdatum</span>
             </div>
-            <input type="text" class="form-control data" id="einstellungsdatum" disabled>
+            <input type="date" class="form-control data" id="einstellungsdatum">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text input-item"><i class="far fa-comment"></i></span>
                 <span class="input-group-text input-desc">Bemerkung</span>
             </div>
-            <textarea class="form-control data" id="bemerkung" rows="3" disabled></textarea>
+            <textarea class="form-control data" id="bemerkung" rows="3"></textarea>
         </div>
-        <button type="button" class="btn btn-primary" id="save" onclick="saveFields()" disabled>Speichern</button>
+        <button type="button" class="btn btn-primary" id="save" onclick="saveFields()">Speichern</button>
     </form>
   </div>
 
