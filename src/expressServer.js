@@ -11,11 +11,6 @@ app.post('/search_kita/get', async (req, res) => {
     let result = await functions.searchKita(req.body);
     res.send(result);
 });
-app.post('/stammdaten/save', async (req, res) => {
-    console.log('POST: stammdaten/save');
-    let result = await functions.saveStammdaten(req.body);
-    res.send(result);
-});
 
 app.listen(port, () => {
     console.log('running...');

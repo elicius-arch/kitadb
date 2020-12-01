@@ -26,30 +26,7 @@ class AccessApp {
         })
     }
 
-    insertStammdaten(data, resolve) {
-        this.connect()
-            .query('SELECT MAX(Personal_ID) FROM tbl_Stammdaten')
-            .then((dat => {
-                console.log(dat);
-                let sql = 'INSERT INTO tbl_Stammdaten VALUES (' + (dat[0].Expr1000 + 1) + ', ' + 
-                    ((data.nachname != undefined) ? '"' + data.nachname + '",' : '') +
-                    ((data.vorname != undefined) ? ' "' + data.vorname + '",' : '') + 
-                    ((data.gebDate != undefined) ? ' ' + data.gebDate + ',' : '') + 
-                    ((data.unbefristet != undefined) ? ' ' + data.unbefristet + ',' : '') + 
-                    ((data.einstellungsdatum != undefined) ? ' ' + data.einstellungsdatum + ',' : '') + 
-                    ((data.bemerkung != undefined) ? ' "' + data.bemerkung + '"': '') +
-                    ');';
-                console.log(sql);
-                this.connect()
-                    .execute(sql)
-                    .then(data => {
-                        console.log('INSERTED SUCCESSFULLY');
-                        console.log(data);
-                        resolve();
-                    });
-                    }));
-        
-    }
+    
       
 }
 
