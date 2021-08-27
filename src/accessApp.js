@@ -14,7 +14,7 @@ class AccessApp {
     }
 
     selectKita(kita, date, resolve) {
-        let sql = 'SELECT * FROM tbl_Stelle '+
+        let sql = 'SELECT * FROM Stelle '+
         'LEFT OUTER JOIN tbl_Stammdaten ON tbl_Stammdaten.Personal_ID = tbl_Stelle.Personal_ID ' +
         'WHERE Kita = "' + kita + '" AND Beginn <= ' + date + ' '+ 
         'AND (Ende >= ' + date + ' OR Ende IS NULL);';
